@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Create user</h3>
+<br />
+<form th:action="@{/}" th:object="${user}" method="POST">
+    <input name="id" th:field="*{id}" th:value="${user.id}" hidden="hidden">
+    <label for="name">Name</label>
+    <input type="text" id="name" th:field="*{name}" th:value="${user.name}" required>
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    </br>
+    <label for="lastName">LastName</label>
+    <input type="text" id="lastName" th:field="*{lastName}" th:value="${user.lastName}" required>
+    <div style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name error</div>
+    </br>
+    <button type="submit">create user</button>
+</form>
+
+</body>
+</html>
